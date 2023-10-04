@@ -15,7 +15,11 @@ export class HeroesComponent {
 
   // Add a getHeroes() method to fetch the heroes from the service.
   getHeroes(): void {
-    this.heroes = this.heroService.getHeroes();
+    this.heroService.getHeroes()
+      .subscribe(x=> {
+        console.log(x);
+        this.heroes = x;
+      });
   }
 
   // onselect() method assigns the clicked hero from the template to the component's selectedHero.
